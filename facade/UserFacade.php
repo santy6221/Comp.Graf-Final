@@ -7,6 +7,8 @@ require_once('../controller/UserController.php');
 $user = new User();
 $controller = new UserController();
 
+echo 'user facade';
+
 if (isset($_REQUEST['action'])) {
     switch ($_REQUEST['action']) {
 
@@ -21,7 +23,8 @@ if (isset($_REQUEST['action'])) {
             break;
 
         case 'select':
-            echo "<br/>select select";
+            $users=$controller->select();
+            print_r($users);
             break;
 
         case 'update':

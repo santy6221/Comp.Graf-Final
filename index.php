@@ -13,6 +13,12 @@
 
 <body class="align">
 
+    <form action="facade/userFacade.php?action=select" method="post" class="form">
+
+    <div class="form__field">
+        <input type="submit" value="Sign Up">
+    </div>
+
     <div class="grid align__item">
 
         <div class="register">
@@ -21,13 +27,13 @@
 
             <h2>Sign Up</h2>
 
-            <form action="" method="post" class="form">
+            <form action="facade/userFacade.php?action=insert" method="post" class="form">
 
-                <div class="form__field" style="color: #C4D7E5;">
+                <div class="form__field">
                     <input type="email" placeholder="info@mailaddress.com">
                 </div>
 
-                <div class="form__field" style="color: #C4D7E5;">
+                <div class="form__field">
                     <input type="password" placeholder="••••••••••••">
                 </div>
 
@@ -37,7 +43,7 @@
 
             </form>
 
-            <p>Hijueputa <a href="#">Log in</a></p>
+            <!-- <p>Hijueputa <a href="#">Log in</a></p> -->
 
         </div>
 

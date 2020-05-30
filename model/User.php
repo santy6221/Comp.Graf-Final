@@ -2,10 +2,10 @@
 
 class User
 {
-    private int $id;
-    private string $nick;
-    private string $password;
-    private int $points;
+    private $id;
+    private $nick;
+    private $password;
+    private $points;
 
     /**
      * Get the value of id
