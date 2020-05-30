@@ -24,4 +24,32 @@ class DAO
             die($e->getMessage());
         }
     }
+
+    public static function SELECT(string $stmt)
+    {
+
+        require('Config.php');
+        $connection = mysqli_connect($host, $user) or die("No se pudo crear conexión");
+        //$basededatos = mysqli_select_db($connection, $db) or die("Error en conexión de base de datos");
+        $result = mysqli_query($connection, $stmt);
+        mysqli_close($connection);
+        $resultado = [];
+
+
+        while ($columna  = mysqli_fetch_array($result)) {
+
+            array_push($resultado, $columna);
+        }
+        return $resultado;
+    }
+
+    public static function INSERT(string $stmt)
+    {
+        require('Config.php');
+        $connection = mysqli_connect($host, $user) or die("No se pudo crear conexión");
+        //$basededatos = mysqli_select_db($connection, $db) or die("Error en conexión de base de datos");
+        mysqli_query($connection, $stmt);
+        mysqli_close($connection);
+        print_r(mysqli_info($connection));
+    }
 }

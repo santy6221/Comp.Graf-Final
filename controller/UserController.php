@@ -1,6 +1,6 @@
 <?php
 
-require_once('../dao.php');
+require_once('dao.php');
 
 class UserController extends DAO
 {
@@ -11,26 +11,16 @@ class UserController extends DAO
 
     public function insert(User $user)
     {
-        $sqlC = "INSERT INTO user (Nick, `Password`, Points) VALUES (?, ?, ?)";
+        $stmt = "INSERT INTO user (Nombre, username, Contrasena, NumLogin) VALUES (?, ?, ?)";
 
-        try {
-
-            $this->pdo->prepare($sqlC)->execute(
-                // nickname points
-                array(
-                    $user->getNick(),  // GET 
-                    $user->getPassword(),
-                    $user->getPoints()     // GET 
-                )
-            );
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
+        DAO::INSERT($stmt);
     }
 
-    public function select()
+    public static function select()
     {
-        $sqlC = "SELECT * FROM user";
+        $stmt = "SELECT * FROM final_comp.usuario";
+        $result = DAO::SELECT($stmt);
+        return $result;
     }
 
     public function update()
