@@ -2,87 +2,115 @@
 
 class User
 {
-    private $id;
-    private $nick;
-    private $password;
-    private $points;
+    private $idUsuario;
+    private $userName;
+    private $nombre;
+    private $contrasena;
+    private $numLogin;
+
+    public function __construct()
+    {
+    }
+
+    
+
 
     /**
-     * Get the value of id
+     * Get the value of idUsuario
      */
-    public function getId()
+    public function getIdUsuario():int
     {
-        return $this->id;
+        return $this->idUsuario;
     }
 
     /**
-     * Set the value of id
+     * Set the value of idUsuario
      *
      * @return  self
      */
-    public function setId($id)
+    public function setIdUsuario($idUsuario)
     {
-        $this->id = $id;
+        $this->idUsuario = $idUsuario;
 
         return $this;
     }
 
     /**
-     * Get the value of nick
+     * Get the value of userName
      */
-    public function getNick()
+    public function getUserName():string
     {
-        return $this->nick;
+        return $this->userName;
     }
 
     /**
-     * Set the value of nick
+     * Set the value of userName
      *
      * @return  self
      */
-    public function setNick($nick)
+    public function setUserName($userName)
     {
-        $this->nick = $nick;
+        $this->userName = $userName;
 
         return $this;
     }
 
     /**
-     * Get the value of password
+     * Get the value of nombre
      */
-    public function getPassword()
+    public function getNombre():string
     {
-        return $this->password;
+        return $this->nombre;
     }
 
     /**
-     * Set the value of password
+     * Set the value of nombre
      *
      * @return  self
      */
-    public function setPassword($password)
+    public function setNombre($nombre)
     {
-        $this->password = $password;
+        $this->nombre = $nombre;
 
         return $this;
     }
 
     /**
-     * Get the value of points
+     * Get the value of contrasena
      */
-    public function getPoints()
+    public function getContrasena():string
     {
-        return $this->points;
+        return $this->contrasena;
     }
 
     /**
-     * Set the value of points
+     * Set the value of contrasena
      *
      * @return  self
      */
-    public function setPoints($points)
+    public function setContrasena($contrasena)
     {
-        $this->points = $points;
+        $this->contrasena = $contrasena;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of numLogin
+     */
+    public function getNumLogin():int
+    {
+        return $this->numLogin;
+    }
+
+    /**
+     * Set the value of numLogin
+     *
+     * @return  self
+     */
+    public function setNumLogin($numLogin)
+    {
+        $this->numLogin = $numLogin;
 
         return $this;
     }
