@@ -1,6 +1,5 @@
 <?php
-
-require_once('dao.php');
+require_once '../dao.php';
 
 class UserController extends DAO
 {
@@ -9,21 +8,104 @@ class UserController extends DAO
         parent::__construct();
     }
 
-    public function insert(User $user)
+    public function verifyExistence(User $user): bool
     {
-        $stmt = "INSERT INTO user (Nombre, username, Contrasena, NumLogin) VALUES (?, ?, ?)";
+        $username = $user->getUserName();
+        echo $username;
+        $sqlC = "SELECT * FROM usuario WHERE username =  '$username' ";
 
-        DAO::INSERT($stmt);
+        try {
+            $statement = $this->pdo->prepare($sqlC);
+            $result = $statement->execute();
+            $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
+
+            if ($result) {
+                return true;
+            }
+            return false;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
 
-    public static function select()
+    public function insert(User $data)
     {
-        $stmt = "SELECT * FROM final_comp.usuario";
-        $result = DAO::SELECT($stmt);
-        return $result;
+        echo 'insert ...controller';
+        $sqlC = "INSERT into usuario (nombre, username, contrasena, numlogin)
+        VALUES (?,?,?,?)";
+        try {
+            /*$sql = "INSERT INTO user(nickname,
+                                     points)
+                    VALUES (?,?)";
+            */
+            $this->pdo->prepare($sqlC)->execute(
+                // nickname points
+                array(
+                    $data->getNombre(),
+                    $data->getUserName(),
+                    $data->getContrasena(),
+                    $data->getNumLogin()
+                )
+            );
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
 
-    public function update()
+    public function select(): array
+    {
+        $sqlC = "SELECT * FROM usario";
+
+        try {
+            $statement = $this->pdo->prepare($sqlC);
+            $result = $statement->execute();
+            $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
+
+            if ($result) {
+                foreach ($rows as $row) {
+                    $data = new User();
+                    $data->setIdUsuario($row->idUsuario);
+                    $data->setNombre($row->Nombre);
+                    $data->setUserName($row->Username);
+                    $data->setContrasena($row->Contrasena);
+                    $data->setNumLogin($row->NumLogin);
+                }
+                return $rows;
+            }
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function getUser(User $user): User
+    {
+        $username = $user->getUserName();
+        echo $username;
+        $sqlC = "SELECT * FROM usuario WHERE username =  '$username' ";
+
+        try {
+            $statement = $this->pdo->prepare($sqlC);
+            $result = $statement->execute();
+            $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
+
+            if ($result) {
+                foreach ($rows as $row) {
+                    $data = new User();
+                    $data->setIdUsuario($row->idUsuario);
+                    $data->setNombre($row->Nombre);
+                    $data->setUserName($row->Username);
+                    $data->setContrasena($row->Contrasena);
+                    $data->setNumLogin($row->NumLogin);
+
+                    return $data;
+                }
+            }
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function update(User $user)
     {
         echo 'update';
     }

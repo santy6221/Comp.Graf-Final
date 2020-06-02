@@ -2,28 +2,35 @@
 
 class User
 {
-    private int $id;
-    private string $name;
-    private string $contrasena;
-    private string $username;
-    private int $numLogin;
+    private $idUsuario;
+    private $userName;
+    private $nombre;
+    private $contrasena;
+    private $numLogin;
+
+    public function __construct()
+    {
+    }
+
+
+
 
     /**
-     * Get the value of id
+     * Get the value of idUsuario
      */
-    public function getId()
+    public function getIdUsuario(): int
     {
-        return $this->id;
+        return $this->idUsuario;
     }
 
     /**
-     * Set the value of id
+     * Set the value of idUsuario
      *
      * @return  self
      */
-    public function setId($id)
+    public function setIdUsuario($idUsuario)
     {
-        $this->id = $id;
+        $this->idUsuario = $idUsuario;
 
         return $this;
     }
@@ -41,34 +48,22 @@ class User
     public function setUserName($username)
     {
         $this->username = $username;
-
-        return $this;
     }
 
-    /**
-     * Get the value of nick
-     */
-    public function getName()
+    public function getNombre()
     {
-        return $this->name;
+        return $this->nombre;
     }
 
-    /**
-     * Set the value of nick
-     *
-     * @return  self
-     */
-    public function setName($name)
+    public function setNombre($nombre)
     {
-        $this->name = $name;
-
-        return $this;
+        $this->nombre = $nombre;
     }
 
     /**
-     * Get the value of password
+     * Get the value of contrasena
      */
-    public function getContrasena()
+    public function getContrasena(): string
     {
         return $this->contrasena;
     }
@@ -86,15 +81,15 @@ class User
     }
 
     /**
-     * Get the value of points
+     * Get the value of numLogin
      */
-    public function getNumLogin()
+    public function getNumLogin(): int
     {
         return $this->numLogin;
     }
 
     /**
-     * Set the value of NumLogin
+     * Set the value of numLogin
      *
      * @return  self
      */
