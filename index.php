@@ -29,7 +29,7 @@
 
             <h2>Sign Up</h2>
 
-            <form action="facade/userFacade.php?action=verifyExistence" method="post" class="form">
+            <form action="Verificaciones/userVerification.php" method="post" class="form">
             <!-- <input name='nickname' type="text" placeholder="nickname" class="field">
             <input name='password' type="password" placeholder="password" class="field">
             <input name='points' type="hidden" value='0' placeholder="password" class="field">

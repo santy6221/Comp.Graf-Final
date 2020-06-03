@@ -3,9 +3,11 @@
 
 <?php
 require_once '../controller/UserController.php';
+require_once '../model/User.php';
 
 $data = [];
-$data = UserController::select();
+$usercontroller=new UserController();
+$data = $usercontroller->select();
 ?>
 
 <head>
@@ -29,7 +31,7 @@ $data = UserController::select();
             <?php foreach ($data as $user) :; ?>
 
                 <li class="table-row">
-                    <div class="col col-1" data-label="Id"><?php echo $user->getId() ?></div>
+                    <div class="col col-1" data-label="Id"><?php echo $user->getIdUsuario() ?></div>
                     <div class="col col-2" data-label="Name"><?php echo $user->getName() ?></div>
                     <div class="col col-3" data-label="User"><?php echo $user->getUserName() ?></div>
                     <div class="col col-4" data-label="Amount"><?php echo $user->getNumLogin() ?></div>

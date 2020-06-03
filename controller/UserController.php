@@ -1,8 +1,9 @@
 <?php
 //echo 'djkansdksnkad';
 require_once '../dao.php';
+require_once '../interfaces/dbfunctions.php';
 
-class UserController extends DAO
+class UserController extends DAO implements dbfunctions
 {
     public function __construct()
     {
@@ -12,7 +13,7 @@ class UserController extends DAO
     public function verifyExistence(User $user):bool
     {
         $username=$user->getUserName();
-        echo $username;
+        echo '<br>'.$username;
         $sqlC = "SELECT * FROM usuario WHERE username =  '$username' "  ;
 
         try {
@@ -21,12 +22,23 @@ class UserController extends DAO
             $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
   
             if ($result) {
-                return true;
+                foreach ($rows as $row) {
+                    $data = new User();
+                    $data->setIdUsuario($row->idUsuario);
+                    if ($data->getIdUsuario()!=null) {
+                        return true;
+                    }
+                }
+                //return $rows;
             }
+  
+
             return false;
         } catch (Exception $e) {
             die($e->getMessage());
         }
+        echo '<br> user controller verify false';
+        return false;
     }
 
     public function insert(User $data)
@@ -55,8 +67,8 @@ class UserController extends DAO
     
     public function select(): array
     {
-        $sqlC = "SELECT * FROM usario";
-
+        $sqlC = "SELECT * FROM usuario";
+        echo 'select';
         try {
             $statement = $this->pdo->prepare($sqlC);
             $result=$statement->execute();
@@ -111,7 +123,7 @@ class UserController extends DAO
         echo 'update';
     }
 
-    public function delete()
+    public function delete(User $user)
     {
         echo 'delete';
     }
