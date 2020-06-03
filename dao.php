@@ -14,7 +14,7 @@ class DAO
     {
         require('config.php');
         try {
-            $this->pdo = new PDO("mysql:host=".$host.";dbname=".$dbname, $user, $password);
+            $this->pdo = new PDO($dsn, $user, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             /*    PDO es una capa abstracta para PHP que nos permite realizar consultas a
             *    la base de datos y entre sus motores soporta mysql, sqlserver, oracle etc.
@@ -24,7 +24,7 @@ class DAO
         }
     }
 
-    public static function SELECT(string $stmt)
+    /*public static function SELECT(string $stmt)
     {
 
         require('Config.php');
@@ -50,5 +50,5 @@ class DAO
         mysqli_query($connection, $stmt);
         mysqli_close($connection);
         print_r(mysqli_info($connection));
-    }
+    }*/
 }

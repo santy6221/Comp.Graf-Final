@@ -1,5 +1,6 @@
 <?php
 require_once '../dao.php';
+require_once '../model/User.php';
 
 class UserController extends DAO
 {
@@ -54,7 +55,8 @@ class UserController extends DAO
 
     public function select(): array
     {
-        $sqlC = "SELECT * FROM usario";
+        $sqlC = "SELECT * FROM usuario";
+        $values = [];
 
         try {
             $statement = $this->pdo->prepare($sqlC);
@@ -66,11 +68,12 @@ class UserController extends DAO
                     $data = new User();
                     $data->setIdUsuario($row->idUsuario);
                     $data->setNombre($row->Nombre);
-                    $data->setUserName($row->Username);
+                    $data->setUserName($row->username);
                     $data->setContrasena($row->Contrasena);
                     $data->setNumLogin($row->NumLogin);
+                    array_push($values, $data);
                 }
-                return $rows;
+                return $values;
             }
         } catch (Exception $e) {
             die($e->getMessage());

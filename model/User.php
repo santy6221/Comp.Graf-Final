@@ -3,7 +3,7 @@
 class User
 {
     private $idUsuario;
-    private $userName;
+    private $username;
     private $nombre;
     private $contrasena;
     private $numLogin;
