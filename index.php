@@ -29,10 +29,20 @@
 
             <h2>Sign Up</h2>
 
+<<<<<<< HEAD
             <form action="" method="post" class="form">
 
                 <div class="form__field" style="color: #C4D7E5;">
                     <input type="email" placeholder="info@mailaddress.com">
+=======
+            <form action="Verificaciones/userVerification.php" method="post" class="form">
+            <!-- <input name='nickname' type="text" placeholder="nickname" class="field">
+            <input name='password' type="password" placeholder="password" class="field">
+            <input name='points' type="hidden" value='0' placeholder="password" class="field">
+            <input type="submit" value="login" class="btn"> -->
+                <div class="form__field">
+                    <input name='nickname' type="nickname" placeholder="reallycoolnick"  class="field">
+>>>>>>> 28495c2fa12cb8dbd23b1fd228475ae548dd4ecb
                 </div>
 
                 <div class="form__field" style="color: #C4D7E5;">
