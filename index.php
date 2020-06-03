@@ -30,15 +30,15 @@
             <h2>Sign Up</h2>
 
             <form action="Verificaciones/userVerification.php" method="post" class="form">
-            <!-- <input name='nickname' type="text" placeholder="nickname" class="field">
+                <!-- <input name='nickname' type="text" placeholder="nickname" class="field">
             <input name='password' type="password" placeholder="password" class="field">
             <input name='points' type="hidden" value='0' placeholder="password" class="field">
             <input type="submit" value="login" class="btn"> -->
                 <div class="form__field">
-                    <input name='nickname' type="nickname" placeholder="reallycoolnick"  class="field">
+                    <input name='nickname' type="nickname" placeholder="reallycoolnick" class="field">
                 </div>
 
-                <div class="form__field" style="color: #C4D7E5;">
+                <div name="password" type="password" class="form__field" style="color: #C4D7E5;">
                     <input type="password" placeholder="••••••••••••">
                 </div>
 
