@@ -5,63 +5,46 @@
 include_once '../Config.php';
 require_once '../model/User.php';
 require_once '../controller/UserController.php';
+require_once '../interfaces/dbfunctions.php';
 
-$alm=new User();
-$controller = new UserController();
 
-if (isset($_REQUEST['action'])) {
-    echo $_REQUEST['action'];
-    switch ($_REQUEST['action']) {
-
-        case 'verifyExistence':
-            echo 'user facade verify user';
-            $alm->setUserName($_REQUEST["nickname"]);
-            $alm->setContrasena($_REQUEST["password"]);
-            if ($controller->verifyExistence($alm)) {
-                echo 'usuario encontrado';
-                $dbUser=$controller->getUser($alm);
-                if ($dbUser->getContrasena()==$alm->getContrasena()) {
-                    //no se cual es la ruta al main xd
-                    //header('Location: ');
-                    echo 'usuario y contraseña validos';
-                    $dbUser->setNumLogin($dbUser->getNumLogin()+1);
-                    $controller->update($dbUser);
-                } else {
-                    echo 'constraseña no valida';
-                    //header('Location: http://localhost/Comp.Graf-Final/');
-                }
-            } else {
-                echo 'usuario encontrado';
-                $alm->setNombre("-");
-                $alm->setNumLogin($_REQUEST["points"]);
-    
-                $controller->insert($alm);
-            }
-
-            
-        break;
-
-        case 'insert':
-            //echo "<br/>select insert";
-            $alm->setUserName($_REQUEST["username"]);
-            $alm->setContrasena($_REQUEST["password"]);
-            $alm->setNombre("-");
-            $alm->setNumLogin($_REQUEST["points"]);
-
-            $controller->insert($alm);
-            break;
-
-        case 'select':
-            ($controller->select());
+class UserFacade implements dbfunctions
+{
+    public function insert(User $user)
+    {
+        $controller = new UserController();
+        $controller->insert($user);
+        session_start();
+    }
+    public function select()
+    {
+        $controller = new UserController();
+        return $controller->select();
+    }
            
-            break;
 
-        case 'update':
-            echo "<br/>select update";
-            break;
+    public function update(User $user)
+    {
+        $controller = new UserController();
+        $controller->update($user);
+    }
 
-        case 'delete':
-            echo "<br/>select delete";
-            break;
+
+    public function delete(User $user)
+    {
+        $controller = new UserController();
+        $controller->delete($user);
+    }
+
+    public function getUser(User $user):User
+    {
+        $controller = new UserController();
+        return $controller->getUser($user);
+    }
+
+    public function verifyExistence(User $user):bool
+    {
+        $controller = new UserController();
+        return $controller->verifyExistence($user);
     }
 }

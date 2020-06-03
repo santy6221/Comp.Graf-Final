@@ -4,9 +4,10 @@
 <?php
 require_once '../controller/UserController.php';
 require_once '../model/User.php';
-$controller = new UserController();
+
 $data = [];
-$data = $controller->select();
+$usercontroller = new UserController();
+$data = $usercontroller->select();
 ?>
 
 <head>
