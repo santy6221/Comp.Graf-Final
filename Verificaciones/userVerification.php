@@ -23,10 +23,10 @@ if ($facade->verifyExistence($alm)) {
         session_start();
 
         $dbUser->setNumLogin($dbUser->getNumLogin() + 1);
-        header('Location: http://localhost/protocolcomp/views/main.php');
+        header('Location: http://localhost/Comp.Graf-Final/views/main.php');
     } else {
         echo '<br> constraseña no valida';
-        header('Location: http://localhost/protocolcomp/');
+        header('Location: http://localhost/Comp.Graf-Final/');
     }
 } else {
     echo '<br> usuario no encontrado';
@@ -34,5 +34,5 @@ if ($facade->verifyExistence($alm)) {
     $alm->setNumLogin($_POST["points"]);
 
     $facade->insert($alm);
-    header('Location: http://localhost/protocolcomp/views/main.php');
+    header('Location: http://localhost/Comp.Graf-Final/views/main.php');
 }
