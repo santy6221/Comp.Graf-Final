@@ -36,9 +36,9 @@ function initElements() {
     //document.body.appendChild(renderer.domElement);
 
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    camera.position.set(-363.95,171.75,-5.22);
+    camera.position.set(-363.95, 171.75, -5.22);
     controls.target = new THREE.Vector3(0, 85, 0);
-    
+
 
 
 
@@ -103,7 +103,7 @@ function loadOBJ_MTL(generalPath, pathMTL, pathOBJ) {
         objLoader.load(pathOBJ, function(object) {
 
             modelLoad = object;
-            ObjetoUno=object;
+            ObjetoUno = object;
             scene.add(object);
             object.scale.set(0.3, 0.3, 0.3);
             object.position.y = 0;
@@ -120,35 +120,35 @@ function loadGITF_B() {
 
     // Optional: Provide a DRACOLoader instance to decode compressed mesh data
     var dracoLoader = new THREE.DRACOLoader();
-        dracoLoader.setDecoderPath( './models/botella' );
-        loader.setDRACOLoader( dracoLoader );
+    dracoLoader.setDecoderPath('../models/botella');
+    loader.setDRACOLoader(dracoLoader);
 
     // Load a glTF resource
     loader.load(
-    // resource URL
-    './models/botella/scene.gltf',
-    // called when the resource is loaded
-    function ( gltf ) {
-        ObjetoUno=gltf.scene;
-        scene.add( gltf.scene );
-            ObjetoUno.position.set(0,90,-5.22);
-            gltf.scene.visible=false;
+        // resource URL
+        '../models/botella/scene.gltf',
+        // called when the resource is loaded
+        function(gltf) {
+            ObjetoUno = gltf.scene;
+            scene.add(gltf.scene);
+            ObjetoUno.position.set(0, 90, -5.22);
+            gltf.scene.visible = false;
             gltf.animations; // Array<THREE.AnimationClip>
-            gltf.scene;   // THREE.Scene
-            gltf.scenes;  // Array<THREE.Scene>
+            gltf.scene; // THREE.Scene
+            gltf.scenes; // Array<THREE.Scene>
             gltf.cameras; // Array<THREE.Camera>
-            gltf.asset;   // Object
-            gltf.scene.scale.set(40,40,40) // scale here
+            gltf.asset; // Object
+            gltf.scene.scale.set(40, 40, 40) // scale here
             gltf.scene.rotation.y = -(Math.PI / 2);
         },
-        
+
         // called while loading is progressing
-        function ( xhr ) {
-            console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+        function(xhr) {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
         },
         // called when loading has errors
-        function ( error ) {
-            console.log( 'An error happened' );
+        function(error) {
+            console.log('An error happened');
         }
     );
 }
@@ -159,34 +159,34 @@ function loadGITF_H() {
 
     // Optional: Provide a DRACOLoader instance to decode compressed mesh data
     var dracoLoader = new THREE.DRACOLoader();
-        dracoLoader.setDecoderPath( './models/other' );
-        loader.setDRACOLoader( dracoLoader );
+    dracoLoader.setDecoderPath('../models/other');
+    loader.setDRACOLoader(dracoLoader);
 
     // Load a glTF resource
     loader.load(
-    // resource URL
-    './models/other/scene.gltf',
-    // called when the resource is loaded
-    function ( gltf ) {
-        ObjetoDos=gltf.scene;
-        scene.add( gltf.scene );
-            gltf.scene.visible=false;
+        // resource URL
+        '../models/other/scene.gltf',
+        // called when the resource is loaded
+        function(gltf) {
+            ObjetoDos = gltf.scene;
+            scene.add(gltf.scene);
+            gltf.scene.visible = false;
             gltf.animations; // Array<THREE.AnimationClip>
-            gltf.scene;   // THREE.Scene
-            gltf.scenes;  // Array<THREE.Scene>
+            gltf.scene; // THREE.Scene
+            gltf.scenes; // Array<THREE.Scene>
             gltf.cameras; // Array<THREE.Camera>
-            gltf.asset;   // Object
-            gltf.scene.scale.set(1,1,1) // scale here
+            gltf.asset; // Object
+            gltf.scene.scale.set(1, 1, 1) // scale here
             gltf.scene.rotation.y = -(Math.PI / 2);
         },
-        
+
         // called while loading is progressing
-        function ( xhr ) {
-            console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+        function(xhr) {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
         },
         // called when loading has errors
-        function ( error ) {
-            console.log( 'An error happened' );
+        function(error) {
+            console.log('An error happened');
         }
     );
 }
@@ -197,57 +197,57 @@ function loadGITF_CB() {
 
     // Optional: Provide a DRACOLoader instance to decode compressed mesh data
     var dracoLoader = new THREE.DRACOLoader();
-        dracoLoader.setDecoderPath( './models/kleenex' );
-        loader.setDRACOLoader( dracoLoader );
+    dracoLoader.setDecoderPath('../models/kleenex');
+    loader.setDRACOLoader(dracoLoader);
 
     // Load a glTF resource
     loader.load(
-    // resource URL
-    './models/kleenex/scene.gltf',
-    // called when the resource is loaded
-    function ( gltf ) {
-        ObjetoTres=gltf.scene;
-        scene.add( gltf.scene );
-        ObjetoTres.position.set(50,80,100);
-            gltf.scene.visible=true;
+        // resource URL
+        '../models/kleenex/scene.gltf',
+        // called when the resource is loaded
+        function(gltf) {
+            ObjetoTres = gltf.scene;
+            scene.add(gltf.scene);
+            ObjetoTres.position.set(50, 80, 100);
+            gltf.scene.visible = true;
             gltf.animations; // Array<THREE.AnimationClip>
-            gltf.scene;   // THREE.Scene
-            gltf.scenes;  // Array<THREE.Scene>
+            gltf.scene; // THREE.Scene
+            gltf.scenes; // Array<THREE.Scene>
             gltf.cameras; // Array<THREE.Camera>
-            gltf.asset;   // Object
-            gltf.scene.scale.set(1000,1000,1000) // scale here
+            gltf.asset; // Object
+            gltf.scene.scale.set(1000, 1000, 1000) // scale here
             gltf.scene.rotation.y = -(Math.PI / 2);
         },
-        
+
         // called while loading is progressing
-        function ( xhr ) {
-            console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+        function(xhr) {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
         },
         // called when loading has errors
-        function ( error ) {
-            console.log( 'An error happened' );
+        function(error) {
+            console.log('An error happened');
         }
     );
 }
 
-function Botella(){
-    ObjetoUno.visible=true;
-    ObjetoDos.visible=false;
-    ObjetoTres.visible=false;
+function Botella() {
+    ObjetoUno.visible = true;
+    ObjetoDos.visible = false;
+    ObjetoTres.visible = false;
     alert("Mantener tus manos limpias es importante, reduce la probabilidad de contagiar y de ser contagiado, sin embargo úsalo moderadamente.");
 }
 
-function Hombre(){
-    ObjetoUno.visible=false;
-    ObjetoDos.visible=true;
-    ObjetoTres.visible=false;
+function Hombre() {
+    ObjetoUno.visible = false;
+    ObjetoDos.visible = true;
+    ObjetoTres.visible = false;
     alert("Son personas que constantemente arriesgan sus vidas para salvar las de otros, dejamos en sus manos nuestro bienestar.");
 }
 
-function Cleanex(){
-    ObjetoUno.visible=false;
-    ObjetoDos.visible=false;
-    ObjetoTres.visible=true;
+function Cleanex() {
+    ObjetoUno.visible = false;
+    ObjetoDos.visible = false;
+    ObjetoTres.visible = true;
     alert("Poder cargar con toallitas es algo positivo para situaciones donde te quieras limpiar rápidamente y no halla un lugar para lavarse la manos cerca.");
 
 }

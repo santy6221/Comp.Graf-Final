@@ -28,7 +28,7 @@ if ($facade->verifyExistence($alm)) {
         header('Location: http://localhost/protocolcomp/views/main.php');
     } else {
         echo '<br> constraseña no valida';
-        header('Location: http://localhost/protocolcomp/');
+        header('Location: http://localhost/Comp.Graf-Final/');
     }
 } else {
     echo '<br> usuario no encontrado';
@@ -36,5 +36,5 @@ if ($facade->verifyExistence($alm)) {
     $alm->setNumLogin(0);
 
     $facade->insert($alm);
-    header('Location: http://localhost/protocolcomp/views/main.php');
+    header('Location: http://localhost/Comp.Graf-Final/views/main.php');
 }
