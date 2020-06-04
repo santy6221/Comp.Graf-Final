@@ -79,7 +79,7 @@ class UserController extends DAO implements dbfunctions
                     $data = new User();
                     $data->setIdUsuario($row->idUsuario);
                     $data->setNombre($row->Nombre);
-                    $data->setUserName($row->Username);
+                    $data->setUserName($row->username);
                     $data->setContrasena($row->Contrasena);
                     $data->setNumLogin($row->NumLogin);
                     array_push($values, $data);

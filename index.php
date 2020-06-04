@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="form__field" style="color: #C4D7E5;">
-                    <input type="password" placeholder="••••••••••••">
+                    <input name="password" type="password" placeholder="••••••••••••">
                 </div>
 
                 <div class="form__field">
