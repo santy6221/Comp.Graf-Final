@@ -68,7 +68,6 @@ class UserController extends DAO implements dbfunctions
     {
         $sqlC = "SELECT * FROM usuario";
         $values = [];
-        echo 'select';
         try {
             $statement = $this->pdo->prepare($sqlC);
             $result = $statement->execute();
