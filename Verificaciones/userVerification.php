@@ -23,6 +23,8 @@ if ($facade->verifyExistence($alm)) {
         session_start();
 
         $dbUser->setNumLogin($dbUser->getNumLogin() + 1);
+
+        $facade->update($dbUser);
         header('Location: http://localhost/protocolcomp/views/main.php');
     } else {
         echo '<br> constraseña no valida';
@@ -31,7 +33,7 @@ if ($facade->verifyExistence($alm)) {
 } else {
     echo '<br> usuario no encontrado';
     $alm->setNombre("-");
-    $alm->setNumLogin($_POST["points"]);
+    $alm->setNumLogin(0);
 
     $facade->insert($alm);
     header('Location: http://localhost/protocolcomp/views/main.php');

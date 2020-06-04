@@ -24,6 +24,7 @@ class UserController extends DAO implements dbfunctions
                 foreach ($rows as $row) {
                     $data = new User();
                     $data->setIdUsuario($row->idUsuario);
+
                     if ($data->getIdUsuario() != null) {
                         return true;
                     }
@@ -106,7 +107,7 @@ class UserController extends DAO implements dbfunctions
                     $data = new User();
                     $data->setIdUsuario($row->idUsuario);
                     $data->setNombre($row->Nombre);
-                    $data->setUserName($row->Username);
+                    $data->setUserName($row->username);
                     $data->setContrasena($row->Contrasena);
                     $data->setNumLogin($row->NumLogin);
 
@@ -118,13 +119,23 @@ class UserController extends DAO implements dbfunctions
         }
     }
 
-    public function update(User $user)
-    {
-        echo 'update';
-    }
-
     public function delete(User $user)
     {
-        echo 'delete';
+        $id = $user->getIdUsuario();
+        $stmt = "DELETE FROM usuario WHERE idUsuario = '$id'";
+
+        $this->pdo->prepare($stmt)->execute();
+    }
+
+    public function update(User $user)
+    {
+        $num = $user->getNumLogin();
+        $username = $user->getUserName();
+        $id = $user->getIdUsuario();
+        $name = $user->getNombre();
+        $pass = $user->getContrasena();
+        $stmt = "UPDATE usuario SET Numlogin = '$num', username = '$username' ,  Nombre = '$name', contrasena = '$pass' WHERE idUsuario = '$id' ";
+
+        $this->pdo->prepare($stmt)->execute();
     }
 }
