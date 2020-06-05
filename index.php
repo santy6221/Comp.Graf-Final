@@ -48,8 +48,6 @@
 
             </form>
 
-            <p>Hijueputa <a href="#">Log in</a></p>
-
         </div>
 
     </div>

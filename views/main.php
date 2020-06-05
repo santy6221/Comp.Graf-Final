@@ -54,7 +54,7 @@
                     <h1>Limpieza y salud</h1>
                     <p>La mejor forma de mantenerse saludable en lo posible, es teniendo una buena limpieza personal(y claro comiendo saludable).
                         Si mantienes una buena higiene personal, tendrás menos probabilidades de contagiarte de cualquier enfermedad y también
-                        de contagiar a otros.
+                        de contagiar a otros.<br />
                         Mantenerte aseado no solo te afecta a ti positivamente si no también a otras personas como el personal de medicina,
                         pues si te cuidas, ellos tendrán menos carga de trabajo.
                     </p>

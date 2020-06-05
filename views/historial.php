@@ -28,7 +28,7 @@ $data = $usercontroller->select();
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="#" aria-disabled="true">Historial <span class="sr-only">(Current)</span></a>
-                <a class="nav-item nav-link" href="http://localhost/Comp.Graf-Final/views/main.php">Protocolos</a>
+                <a class="nav-item nav-link" href="http://localhost/protocolcomp/views/main.php">Protocolos</a>
             </div>
         </div>
     </nav>
