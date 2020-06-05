@@ -3,7 +3,7 @@ var scene = null,
     render = null,
     controls = null;
 var model = null;
-var yes = false;
+var yes = true;
 
 var mouse,
     raycaster;
@@ -18,7 +18,7 @@ function start() {
 function initElements() {
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xe6f7ff);
+    scene.background = new THREE.Color(0xA5BBD4);
 
     camera = new THREE.PerspectiveCamera(
         30, // Ángulo "grabación" - De abaja -> Arriba
@@ -36,7 +36,7 @@ function initElements() {
     //document.body.appendChild(renderer.domElement);
 
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    camera.position.set(-363.95, 171.75, -5.22);
+    camera.position.set(-363.95, 171.75, 5.22);
     controls.target = new THREE.Vector3(0, 85, 0);
 
 
@@ -66,12 +66,16 @@ function initElements() {
 function createLight() {
 
     // Create a directional light
-    light = new THREE.DirectionalLight(0xffffff, 0.8, 1000);
-    light2 = new THREE.DirectionalLight(0xffffff, 0.6, 1000);
+    light = new THREE.DirectionalLight(0xF9F9D0, 0.75, 1000);
+    light2 = new THREE.DirectionalLight(0xAADDD9, 0.4, 1000);
+    var light3 = new THREE.AmbientLight(0x404040); // soft white light
+    scene.add(light3);
+    var light4 = new THREE.HemisphereLight(0xffffbb, 0x080820, 0.2);
+    scene.add(light4);
     //light = new THREE.DirectionalLight(0xffffff, 1, 1000);
     // move the light back and up a bit
-    light.position.set(10, 10, 10);
-    light2.position.set(-10, 10, -10);
+    light.position.set(-10, 10, -10);
+    light2.position.set(10, 10, 10);
     // remember to add the light to the scene
     scene.add(light);
     scene.add(light2);
@@ -176,7 +180,7 @@ function loadGITF_H() {
             gltf.scenes; // Array<THREE.Scene>
             gltf.cameras; // Array<THREE.Camera>
             gltf.asset; // Object
-            gltf.scene.scale.set(1, 1, 1) // scale here
+            gltf.scene.scale.set(2, 1, 2) // scale here
             gltf.scene.rotation.y = -(Math.PI / 2);
         },
 
@@ -241,13 +245,13 @@ function Hombre() {
     ObjetoUno.visible = false;
     ObjetoDos.visible = true;
     ObjetoTres.visible = false;
-    alert("Son personas que constantemente arriesgan sus vidas para salvar las de otros, dejamos en sus manos nuestro bienestar.");
+    alert("Los trabajadores de la salud deben usar una bata limpia antifluido no estéril, de manga larga y de fijación o cierre en la parte de atrás.");
 }
 
 function Cleanex() {
     ObjetoUno.visible = false;
     ObjetoDos.visible = false;
     ObjetoTres.visible = true;
-    alert("Poder cargar con toallitas es algo positivo para situaciones donde te quieras limpiar rápidamente y no halla un lugar para lavarse la manos cerca.");
+    alert("Se debe instruir al personal médico que realiza las evaluaciones médicas debe realizarse el desecho y eliminación apropiada de todos los Elementos de Protección Personal – EPP como mascarilla (tapabocas convencional) y guantes desechables.");
 
 }
